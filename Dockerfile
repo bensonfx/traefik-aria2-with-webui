@@ -1,4 +1,4 @@
-FROM node:11.12-alpine
+FROM node:lts-alpine
 LABEL AUTHOR soulteary
 
 ADD webui-aria2/package.json /app/package.json
@@ -6,7 +6,13 @@ ADD webui-aria2/package-lock.json /app/package-lock.json
 
 WORKDIR /app
 
-RUN npm install -g yarn && yarn
+# RUN apk add --no-cache python make g++ \
+#     && npm install -g yarn \
+#     && yarn
+RUN npm install -g yarn \
+    && yarn config set sass-binary-site https://npm.taobao.org/mirrors/node-sass \
+    && npm config set sass-binary-site https://npm.taobao.org/mirrors/node-sass \
+    && yarn
 
 ADD webui-aria2/ /app
 
