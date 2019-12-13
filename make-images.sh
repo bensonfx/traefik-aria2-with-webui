@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-docker build -t $(cat IMAGE_NAME.txt) .
+IMAGE=$(cat IMAGE_NAME.txt)
+
+docker build --no-cache -t $IMAGE .
+docker push $IMAGE

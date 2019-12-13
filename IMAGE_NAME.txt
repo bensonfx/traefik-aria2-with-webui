@@ -1,1 +1,1 @@
-soulteary/traefik-aria2-with-webui
+registry.bensonfx.net:5443/soulteary/traefik-aria2-with-webui:dev
